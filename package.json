@@ -6,7 +6,8 @@
     "build": "umi build",
     "postinstall": "umi setup",
     "start": "npm run dev",
-    "preview": "umi preview"
+    "preview": "umi preview",
+    "analyze": "ANALYZE=1 umi build"
   },
   "dependencies": {
     "umi": "^4.0.34",
