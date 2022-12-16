@@ -13,4 +13,10 @@ export default (api: IApi) => {
     memo.favicon = api.userConfig.changeFavicon;
     return memo;
   });
+  api.modifyWebpackConfig((memo) => {
+    if (memo.optimization) {
+      memo.optimization.runtimeChunk = true
+    }
+    return memo
+  })
 };
