@@ -1,4 +1,5 @@
 import { type IApi } from 'umi';
+
 export default (api: IApi) => {
   api.describe({
     key: 'changeFavicon',
@@ -13,10 +14,18 @@ export default (api: IApi) => {
     memo.favicon = api.userConfig.changeFavicon;
     return memo;
   });
-  api.modifyWebpackConfig((memo) => {
-    if (memo.optimization) {
-      memo.optimization.runtimeChunk = true
-    }
-    return memo
-  })
+  // api.chainWebpack((memo, { webpack, env }) => {
+  //   memo.plugin('HtmlInlineScriptPlugin').use(HtmlInlineScriptPlugin, [{
+  //     scriptMatchPattern: [/runtime~.+[.]js$/],
+  //   }])
+  //   return memo;
+  // })
+  // hash 问题，暂未发现
+  // api.modifyBabelPresetOpts((memo) => {
+  //   memo.presetEnv = {
+  //     absoluteRuntime: false
+  //   }
+  //   memo.pluginLockCoreJS = false
+  //   return memo
+  // })
 };

@@ -1,4 +1,8 @@
 import { defineConfig } from 'umi';
+// const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
+
+// import HtmlInlineScriptPlugin from 'html-inline-script-webpack-plugin'
+// const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin')
 // let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 export default defineConfig({
   npmClient: 'pnpm',
@@ -12,9 +16,19 @@ export default defineConfig({
     //   analyzerPort: 8010,
     // }])
     // config.optimization.realContentHash(true)
+
+    // config.plugin('ScriptExtHtmlWebpackPlugin').use(ScriptExtHtmlWebpackPlugin, [{
+    //   inline: /runtime\..*\.js$/
+    // }])
     config.optimization.runtimeChunk(true)
     config.output.filename('[name].[contenthash].js')
     config.output.chunkFilename('[name].[contenthash].js')
+    // config.plugin('HtmlInlineScriptPlugin').use(HtmlInlineScriptPlugin, [
+    //   {
+    //     scriptMatchPattern: [/runtime~.+[.]js$/],
+    //     htmlMatchPattern: [/index.html$/],
+    //   }
+    // ])
     return config
   },
   codeSplitting: {
