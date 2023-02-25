@@ -1,4 +1,5 @@
 import { defineConfig } from 'umi';
+import { routes } from './src/router/index'
 // const ScriptExtHtmlWebpackPlugin = require("script-ext-html-webpack-plugin");
 
 // import HtmlInlineScriptPlugin from 'html-inline-script-webpack-plugin'
@@ -10,6 +11,7 @@ export default defineConfig({
   manifest: {
     fileName: 'manifest.json'
   },
+  vite: {},
   chainWebpack: function (config, { webpack }) {
     // 已支持自定义配置，无需安装插件
     // config.plugin('BundleAnalyzerPlugin').use(BundleAnalyzerPlugin, [{
@@ -35,6 +37,8 @@ export default defineConfig({
     jsStrategy: 'depPerChunk'
   },
   hash: true,
+  history: { type: 'hash' },
+  routes,
   // 默认开启
   // mfsu: true,
   // analyze: {
