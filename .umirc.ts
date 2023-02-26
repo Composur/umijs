@@ -24,8 +24,37 @@ export default defineConfig({
     //   inline: /runtime\..*\.js$/
     // }])
     config.optimization.runtimeChunk(true)
-    config.output.filename('[name].[contenthash].js')
-    config.output.chunkFilename('[name].[contenthash].js')
+    // config.optimization.splitChunks({
+    //   chunks: 'async',
+    //   minSize: 20000,
+    //   minChunks: 1,
+    //   maxAsyncRequests: 5,
+    //   maxInitialRequests: 3,
+    //   name: false,
+    //   cacheGroups: {
+    //     vendor: {
+    //       test: /[\\/]node_modules[\\/]/,
+    //       name(module: any) {
+    //         //取得名称。例如 /node_modules/packageName/not/this/part.js
+    //         // 或 /node_modules/packageName
+    //         const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+
+    //         // npm package 是 URL 安全的，但有些服务不喜欢 @ 符号
+    //         return `npm.${packageName.replace('@', '')}`;
+    //       },
+    //     },
+    //     common: {
+    //       name: 'common',
+    //       test: /[\\/]src[\\/]/,
+    //       chunks: 'initial',
+    //       minChunks: 2, //一般为非第三方公共模块
+    //       priority: -20,
+    //       reuseExistingChunk: true,
+    //     },
+    //   },
+    // })
+    // config.output.filename('[name].[contenthash].js')
+    // config.output.chunkFilename('[name].[contenthash].js')
     // config.plugin('HtmlInlineScriptPlugin').use(HtmlInlineScriptPlugin, [
     //   {
     //     scriptMatchPattern: [/runtime~.+[.]js$/],
