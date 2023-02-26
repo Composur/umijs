@@ -4,14 +4,15 @@ import { routes } from './src/router/index'
 
 // import HtmlInlineScriptPlugin from 'html-inline-script-webpack-plugin'
 // const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin')
-// let BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const isPrd = process.env.NODE_ENV === 'production'
 export default defineConfig({
   npmClient: 'pnpm',
   presets: [require.resolve('@umijs/preset-vue')],
   manifest: {
     fileName: 'manifest.json'
   },
-  vite: {},
+  // 开发环境 vite ，线上环境 webpack 打包
+  vite: isPrd ? false : {},
   chainWebpack: function (config, { webpack }) {
     // 已支持自定义配置，无需安装插件
     // config.plugin('BundleAnalyzerPlugin').use(BundleAnalyzerPlugin, [{
