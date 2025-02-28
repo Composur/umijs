@@ -21,11 +21,11 @@ export default (api: IApi) => {
   //   return memo;
   // })
   // hash 问题，暂未发现
-  // api.modifyBabelPresetOpts((memo) => {
-  //   memo.presetEnv = {
-  //     absoluteRuntime: false
-  //   }
-  //   memo.pluginLockCoreJS = false
-  //   return memo
-  // })
+  api.modifyBabelPresetOpts((memo) => {
+    memo.presetEnv = {
+      absoluteRuntime: false
+    }
+    memo.pluginLockCoreJS = false
+    return memo
+  })
 };
