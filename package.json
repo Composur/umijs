@@ -11,11 +11,22 @@
     "analyze": "ANALYZE=1 umi build"
   },
   "dependencies": {
-    "umi": "^4.4.6",
-    "vue": "^3.5.13"
+    "umi": "^4.4.12",
+    "vue": "^3.5.18"
   },
   "devDependencies": {
-    "@umijs/preset-vue": "^4.4.6",
-    "typescript": "^4.9.5"
+    "@umijs/preset-vue": "^4.4.12",
+    "typescript": "^5.9.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "vue": "^3.5.18",
+      "vue-loader": "^17.4.2",
+      "@vue/compiler-dom": "^3.5.18",
+      "@vue/compiler-sfc": "^3.5.18",
+      "@vue/runtime-dom": "^3.5.18",
+      "@vue/server-renderer": "^3.5.18",
+      "@vue/shared": "^3.5.18"
+    }
   }
 }

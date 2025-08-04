@@ -14,6 +14,14 @@ export default defineConfig({
   // 开发环境 vite ，线上环境 webpack 打包
   vite: isPrd ? false : {},
   chainWebpack: function (config, { webpack }) {
+    // 查看 vue-loader 是否已配置
+    console.log('Has vue-loader?', config.module.rules.has('vue'));
+
+    // 获取 vue-loader rule
+    const vueRule = config.module.rule('vue');
+    if (vueRule) {
+      console.log('Vue rule loaders:', vueRule.uses.values());
+    }
     // 已支持自定义配置，无需安装插件
     // config.plugin('BundleAnalyzerPlugin').use(BundleAnalyzerPlugin, [{
     //   analyzerPort: 8010,
