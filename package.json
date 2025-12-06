@@ -3,8 +3,9 @@
   "author": "",
   "scripts": {
     "dev": "umi dev",
-    "build": "umi build",
-    "build:prd": "UMI_ENV=prd umi build",
+    "build": "pnpm build:images && umi build",
+    "build:prd": "pnpm build:images && UMI_ENV=prd umi build",
+    "build:images": "node scripts/convert-images.mjs",
     "postinstall": "umi setup",
     "start": "npm run dev",
     "preview": "umi preview",
@@ -16,6 +17,8 @@
   },
   "devDependencies": {
     "@umijs/preset-vue": "^4.4.12",
+    "imagemin": "^9.0.1",
+    "imagemin-webp": "^8.0.0",
     "typescript": "^5.9.2"
   },
   "pnpm": {

@@ -22,6 +22,20 @@ export default defineConfig({
     if (vueRule) {
       console.log('Vue rule loaders:', vueRule.uses.values());
     }
+
+    // 配置 webp 文件支持（与 jpg/png 一样处理）
+    // umi 默认已经处理图片，但可能不包含 webp，这里确保 webp 被正确处理
+    // 使用 asset/resource 类型，让 webpack 将 webp 文件作为静态资源处理
+    if (!config.module.rules.has('webp')) {
+      config.module
+        .rule('webp')
+        .test(/\.webp$/)
+        .type('asset/resource')
+        .generator({
+          filename: 'static/[name].[hash:8][ext]'
+        })
+    }
+
     // 已支持自定义配置，无需安装插件
     // config.plugin('BundleAnalyzerPlugin').use(BundleAnalyzerPlugin, [{
     //   analyzerPort: 8010,

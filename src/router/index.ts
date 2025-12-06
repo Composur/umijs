@@ -6,4 +6,5 @@ export const routes = [
   { path: '/', component: '@/pages/index.vue' },
   { path: '/docs', component: '@/pages/docs.vue' },
   { path: '/about/:id', name: 'About', component: '@/pages/about' },
+  { path: '/webp-demo', component: '@/pages/webp-demo.vue' },
 ]
